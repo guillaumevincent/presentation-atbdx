@@ -7,6 +7,9 @@ class TestFizzBuzz(unittest.TestCase):
 
     def testFizzBuzzPeutDireUn(self):
         self.assertEquals(1, self.fizzBuzz.dit(1))
+    
+    def testFizzBuzzPeutDireDeux(self):
+        self.assertEquals(2, self.fizzBuzz.dit(2))
 
     def testFizzBuzzPeutDireFizz(self):
         self.assertEquals('Fizz', self.fizzBuzz.dit(3))

@@ -1,5 +1,5 @@
 ﻿import unittest
-from fizzbuzz import FizzBuzz, GenerateurFizz, GenerateurBuzz, GenerateurBang
+from fizzbuzz import FizzBuzz, GenerateurFizz, GenerateurBuzz, GenerateurBang, GenerateurWoopee
 
 class TestFizzBuzz(unittest.TestCase):
     def setUp(self):
@@ -7,6 +7,7 @@ class TestFizzBuzz(unittest.TestCase):
         self.fizzBuzz.generateurs.append(GenerateurFizz())
         self.fizzBuzz.generateurs.append(GenerateurBuzz())
         self.fizzBuzz.generateurs.append(GenerateurBang())
+        self.fizzBuzz.generateurs.append(GenerateurWoopee())
 
     def testFizzBuzzPeutDireUn(self):
         self.assertEquals(1, self.fizzBuzz.dit(1))
@@ -31,6 +32,14 @@ class TestFizzBuzz(unittest.TestCase):
         
     def testFizzBuzzPeutDireFizzBuzzBang(self):
         self.assertEquals('FizzBuzzBang!', self.fizzBuzz.dit(3*7*5))
+    
+    def testFizzBuzzPeutDireWoopee(self):
+        self.assertEquals('Woopee!', self.fizzBuzz.dit(69))
+        
+    def testGenerateurFizzPeutDireFizz(self):
+        gf = GenerateurFizz()
+        self.assertEquals('', gf.dit('', 2))
+        self.assertEquals('Fizz', gf.dit('', 3))
 
 if __name__ == '__main__':
     unittest.main()

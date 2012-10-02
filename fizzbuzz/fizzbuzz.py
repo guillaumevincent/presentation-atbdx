@@ -1,8 +1,45 @@
-class FizzBuzz(object):    
-    def dit(self, nombre):
+class FizzBuzz(object):
+	
+	def __init__(self):
+		self.generateurs = []
+		
+	def main(self):
+		for num in xrange(1,106):
+			print self.dit(num)
+	
+	def dit(self,nombre):
+		resultat = None
+		resultat_precedent = ''
+		for gen in self.generateurs:
+			resultat = gen.dit(nombre)
+			if resultat:
+				resultat_precedent += resultat
+			
+		if not resultat_precedent:
+			return nombre
+		else:
+			return resultat_precedent + '!'
+
+
+class GenerateurFizz(object):
+	def dit(self, nombre):
 		if nombre % 3 == 0:
 			return 'Fizz'
-		elif nombre % 5 == 0:
+	
+class GenerateurBuzz(object):
+	def dit(self, nombre):
+		if nombre % 5 == 0:
 			return 'Buzz'
-		else:
-			return nombre
+			
+class GenerateurBang(object):
+	def dit(self, nombre):
+		if nombre % 7 == 0:
+			return 'Bang'
+			
+			
+if __name__ == '__main__':
+	fb = FizzBuzz()
+	fb.generators.append(GenerateurFizz())
+	fb.generators.append(GenerateurBuzz())
+	fb.generators.append(GenerateurBang())
+	fb.main()

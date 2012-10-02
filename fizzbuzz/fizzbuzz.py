@@ -39,7 +39,7 @@ class GenerateurBang(object):
 			
 if __name__ == '__main__':
 	fb = FizzBuzz()
-	fb.generators.append(GenerateurFizz())
-	fb.generators.append(GenerateurBuzz())
-	fb.generators.append(GenerateurBang())
+	fb.generateurs.append(GenerateurFizz())
+	fb.generateurs.append(GenerateurBuzz())
+	fb.generateurs.append(GenerateurBang())
 	fb.main()
